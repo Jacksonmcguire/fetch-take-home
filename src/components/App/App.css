@@ -1,7 +1,14 @@
-body, html, #root, .App, main {
+body, html, #root, .App {
   height: 100%
 }
 
+main {
+  height: 80%;
+}
+
+h1 {
+  margin-left: 10px
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -22,11 +29,26 @@ header {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (max-width: 600px) {
+  form {
+    flex-direction: column;
+    justify-content: flex-start;
+  }  
+
+  input {
+    margin: 10px;
   }
-  to {
-    transform: rotate(360deg);
+
+  select {
+    width: 50%;
+    margin: 10px;
+  }
+
+  button {
+    align-self: center;
+  }
+
+  .login {
+    font-size: 2.5em;
   }
 }
