@@ -39,12 +39,10 @@ export const checkUser = (user: IUser) => {
   if (user.name !== '' && user.email !== '' 
   && user.password === user.passwordConfirm && user.password !== '' 
   && user.occupation !== '' && user.state !== '') {
-    console.log("hello")
     return postFormSubmission({name: user.name, email: user.email, password: user.password, occupation: user.occupation,state: user.state})
   }
 }
 export const postFormSubmission = (user:IUser) => {
-  console.log(user)
   return fetch("https://frontend-take-home.fetchrewards.com/form", {
     method: "POST",
     headers: {
