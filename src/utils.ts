@@ -22,7 +22,7 @@ export interface IOptions {
   states: state[]
 }
 
-interface IUser {
+export interface IUser {
   name: string
   email: string 
   password: string
@@ -33,20 +33,24 @@ interface IUser {
 
 /**
  * Utility function to confirm all inputs are filled in, and passwords match
+ * If everything looks right, it calls the postFormSubmission function
  */
 export const checkUser = (user: IUser) => {
   if (user.name !== '' && user.email !== '' 
   && user.password === user.passwordConfirm && user.password !== '' 
   && user.occupation !== '' && user.state !== '') {
     console.log("hello")
-    postFormSubmission({name: user.name, email: user.email, password: user.password, occupation: user.occupation,state: user.state})
-    return true
-  } else return false
+    return postFormSubmission({name: user.name, email: user.email, password: user.password, occupation: user.occupation,state: user.state})
+  }
 }
 export const postFormSubmission = (user:IUser) => {
+  console.log(user)
   return fetch("https://frontend-take-home.fetchrewards.com/form", {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
     body: JSON.stringify(user)
-  }).then(res => console.log(res))
+  }).then(res => res.status)
 
 }

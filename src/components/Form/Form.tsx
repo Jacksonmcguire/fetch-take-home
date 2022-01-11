@@ -1,11 +1,12 @@
-import { IOptions, checkUser } from "../../utils"
+import { IOptions, IUser } from "../../utils"
 import { useState } from "react"
 import "./Form.css"
 interface IFormProps {
   options?: IOptions
+  submitUser(user: IUser):Promise<boolean>
 }
 
-export const Form = ({options}:IFormProps) => {
+export const Form = ({options, submitUser}:IFormProps) => {
 
   const [stateOptions, setStateOptions] = useState<JSX.Element[] | undefined>()
 
@@ -44,10 +45,9 @@ export const Form = ({options}:IFormProps) => {
     }
   }
 
-  const submitForm = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const submitForm = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault()
-    checkUser(user)
-    if (checkUser(user)) {
+    if (await submitUser(user) === true) {
         setUser({name: '', email: '', password: '', passwordConfirm: '', state: '0', occupation: '0'})
     }
   }
@@ -60,15 +60,16 @@ export const Form = ({options}:IFormProps) => {
           <input type="password" name="password" value={user.password} onChange={(e) => updateUser(e)} placeholder="password"/>
           <input type="password" name="passwordcheck" value={user.passwordConfirm} onChange={(e) => updateUser(e)} placeholder="confirm password"/>
       </article>
-      <select name="state" defaultValue="0" value={user.state} onChange={(e) => updateUser(e)} required>
+      <select name="state" value={user.state} onChange={(e) => updateUser(e)} required>
         <option value="0" disabled>State</option>
         {stateOptions}
       </select>
-      <button type="submit" onClick={(e) => submitForm(e)}>Submit</button>
-      <select name="occupation" value={user.occupation} defaultValue="0" onChange={(e) => updateUser(e)} required>
+      <select name="occupation" value={user.occupation} onChange={(e) => updateUser(e)} required>
         <option value="0" disabled>Occupation</option>
         {occupationOptions}
       </select>
+      <button type="submit" onClick={(e) => submitForm(e)}>Submit</button>
+
     </form>
   )
 }

@@ -29,4 +29,5 @@ select {
 }
 button {
   align-self: flex-end;
+  cursor: pointer
 }
