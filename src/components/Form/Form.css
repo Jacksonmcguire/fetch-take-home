@@ -1,0 +1,32 @@
+form {
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content: space-around;
+  height: 75%;
+}
+
+.text-inputs {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+}
+
+.text-inputs input,
+select,button {
+  border: 1px solid #FF9D00;
+  border-radius: 5px;
+  font-size: 1.5em;
+  background-color: transparent;
+  padding: 10px;
+
+}
+
+select {
+  cursor: pointer;
+  height: 6vh;
+  align-self: center;
+  width: 20vw;
+}
+button {
+  align-self: flex-end;
+}
