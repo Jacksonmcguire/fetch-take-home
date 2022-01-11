@@ -6,7 +6,7 @@
 ![Node](https://img.shields.io/badge/node.js%20-%2343853D.svg?&style=for-the-badge&logo=node.js&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ## Summary
-A webapp that allows a user to create an account
+A webapp that allows a user to create an account with the following data: name, email, occupation, state, and password
 ## Setup
 1. Fork (optional) and clone down this repository to a directory of your choice
 2. <code>$ cd</code> into the repo
@@ -16,6 +16,8 @@ A webapp that allows a user to create an account
 6. Otherwise the site is deployed to Heroku and accessible [here](https://fetch-take-home.herokuapp.com/)
 ## Future iterations
 * Build out test suite for user creation
+* Improve styling and responsiveness
+* Build a landing page for succesful user creation
 ## [Wireframes](https://excalidraw.com/#room=32b847a2fb6077e34b41,FfV00ez-xE6-uc1t-gkR4g)
 
 <!-- -->
